@@ -1,16 +1,29 @@
 #!/bin/bash
 
-######################################################################
+#########################################################################################################
+# Macbook Baseline Checks
+#########################################################################################################
+# Created by Michael LeMay
+#########################################################################################################
+# Purpose
+#########################################################################################################
+# 
+# This Script is used to check device health to determine re-usability
 # BASH menu script that checks:
 #   - Device Insight
 #   - Power Settings
-#   - Max Disk Space 
+#   - Disk Space & Health
 #   - Keyboard
 #	- Camera & Microphone
-#	- Diagnostics
-######################################################################
+#	
+#
+#########################################################################################################
+# Script version
+VERSION="1.0"
+############################################### Variables ###############################################
 
 device_name=$(scutil --get ComputerName)
+hd_health=$(diskutil verifyDisk disk0 | grep -E -w 'The partition map appears to be')
 device_age=$(
 
 crntusr="$(/usr/bin/stat -f %Su /dev/console)"
@@ -44,6 +57,8 @@ fi
 echo "$mdlyear"
 )
 
+########################################### Menu Functions ##############################################
+
 function device_insight() {
     echo ""
     echo "Device Insight for ${device_name} is: "
@@ -64,10 +79,12 @@ function power_check() {
 
 function disk_check() {
     echo ""
-	echo "Total Disk Space for ${device_name}: "
+	echo "Disk Health and Total Space for ${device_name}: "
     echo ""
+    echo "
+    	  Health: ${hd_health}"
 	system_profiler SPNVMeDataType | awk 'NR==9';
-	system_profiler SPNVMeDataType | awk 'NR==7'
+	system_profiler SPNVMeDataType | awk 'NR==7';
     echo ""
 }
 
@@ -94,6 +111,8 @@ function all_checks() {
 	File exported as: ${device_name}_device_check.txt"
 }
 
+########################################### Menu Prompt #################################################
+
 menu(){
 echo -ne "
 My First Menu
@@ -118,5 +137,5 @@ Choose an option:"
         esac
 }
 
-# Call the menu function
+########################################## Call the Menu Function #######################################
 menu
