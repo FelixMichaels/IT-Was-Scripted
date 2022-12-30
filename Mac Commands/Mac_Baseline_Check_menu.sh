@@ -20,12 +20,19 @@
 #########################################################################################################
 # Script version
 VERSION="1.0"
-############################################### Variables ###############################################
+######################################### Short Variables ###############################################
 
 device_name=$(scutil --get ComputerName)
 hd_health=$(diskutil verifyDisk disk0 | grep -E -w 'The partition map appears to be')
-device_age=$(
+cycle_count=$(system_profiler SPPowerDataType | awk '/Cycle Count/{printf "%s,", $3}' | tr "," " ")
+cycle_used=$(awk -v x="${cycle_count}" -v y=1000 'BEGIN { print  ( x / y )*100 }')
+total=$(awk -v a="${cycle_used}" -v b=100 'BEGIN { print  ( b - a ) }')
 
+
+########################################### Long Variables ##############################################
+#########################################################################################################
+########################################### Device Age ##################################################
+device_age=$(
 crntusr="$(/usr/bin/stat -f %Su /dev/console)"
 plistsp="/Users/$crntusr/Library/Preferences/com.apple.SystemProfiler.plist"
 srlnmbr="$(/usr/sbin/system_profiler SPHardwareDataType | /usr/bin/awk '/Serial/{print substr($NF,9)}')"
@@ -71,8 +78,10 @@ function device_insight() {
 
 function power_check() {
     echo ""
-	echo "Power Settiings for ${device_name} are: "
+	echo "Power Settings for ${device_name} are: "
     echo ""
+    echo "
+    	  "Cycle Capacity Remaining: ${total}"%"
 	system_profiler SPPowerDataType | grep -E -w 'Cycle Count|Condition|Maximum Capacity'
     echo ""
 }
@@ -85,6 +94,15 @@ function disk_check() {
     	  Health: ${hd_health}"
 	system_profiler SPNVMeDataType | awk 'NR==9';
 	system_profiler SPNVMeDataType | awk 'NR==7';
+    echo ""
+}
+
+function stress_check() {
+    echo ""
+	echo "Stress Test initiated on ${device_name}: "
+    echo ""
+    echo "
+    	  This test will take 30 seconds:"
     echo ""
 }
 
@@ -121,7 +139,8 @@ My First Menu
 3) Disk Info
 4) Check Keyboard
 5) Check Camera & Mic
-6) Export All Info
+6) CPU Stress Test
+7) Export All Info
 0) Exit
 Choose an option:"
         read a
@@ -131,7 +150,8 @@ Choose an option:"
 	        3) disk_check ; menu ;;
 	        4) keyboard_check ; menu ;;
 			5) cam_mic_check; menu ;;
-	        6) all_checks ; menu ;;
+			6) stress_check; menu ;;
+	        7) all_checks ; menu ;;
 		0) exit 0 ;;
 		*) echo -e $red"Wrong option."$clear; WrongCommand;;
         esac
