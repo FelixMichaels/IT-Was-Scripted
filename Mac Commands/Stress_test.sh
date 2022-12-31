@@ -22,6 +22,9 @@ Core=$(sysctl -n hw.ncpu)
 
 #Stress test based off cores, then kill test after 30 seconds
 
+echo "Stess Test Initiated, opening Activity Monitor"
+sleep 5
+open -a "Activity Monitor"
 
 if  [ "${Core}" -eq 1 ]
 then 
