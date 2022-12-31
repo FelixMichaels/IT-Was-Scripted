@@ -22,8 +22,8 @@ Core=$(sysctl -n hw.ncpu)
 
 #Stress test based off cores, then kill test after 30 seconds
 
-echo "Stess Test Initiated, opening Activity Monitor"
-sleep 5
+echo "Stress Test Initiated, opening Activity Monitor"
+sleep 3
 open -a "Activity Monitor"
 
 if  [ "${Core}" -eq 1 ]
@@ -31,84 +31,84 @@ then
 	yes > /dev/null &
 	sleep 30
 	killall yes
-fi
+fi &> /dev/null
 
 if [ "${Core}" -eq 2 ]
 then
 	yes > /dev/null & yes > /dev/null &
 	sleep 30
 	killall yes
-fi
+fi &> /dev/null
 
 if [ "${Core}" -eq 3 ]
 then
 	yes > /dev/null & yes > /dev/null & yes > /dev/null &
 	sleep 30
 	killall yes
-fi
+fi &> /dev/null
 
 if [ "${Core}" -eq 4 ]
 then
 	yes > /dev/null & yes > /dev/null & yes > /dev/null & yes > /dev/null &
 	sleep 30
 	killall yes
-fi
+fi &> /dev/null
 
 if [ "${Core}" -eq 5 ]
 then
 	yes > /dev/null & yes > /dev/null & yes > /dev/null & yes > /dev/null & yes > /dev/null &
 	sleep 30
 	killall yes
-fi
+fi &> /dev/null
 
 if [ "${Core}" -eq 6 ]
 then
 	yes > /dev/null & yes > /dev/null & yes > /dev/null & yes > /dev/null & yes > /dev/null & yes > /dev/null &
 	sleep 30
 	killall yes
-fi
+fi &> /dev/null
 
 if [ "${Core}" -eq 7 ]
 then
 	yes > /dev/null & yes > /dev/null & yes > /dev/null & yes > /dev/null & yes > /dev/null & yes > /dev/null & yes > /dev/null &
 	sleep 30
 	killall yes
-fi
+fi &> /dev/null
 
 if [ "${Core}" -eq 8 ]
 then
 	yes > /dev/null & yes > /dev/null & yes > /dev/null & yes > /dev/null & yes > /dev/null & yes > /dev/null & yes > /dev/null & yes > /dev/null &
 	sleep 30
-	killall yes
-fi
+	pkill -9 -fx yes
+fi &> /dev/null
 
 if [ "${Core}" -eq 9 ]
 then
 	yes > /dev/null & yes > /dev/null & yes > /dev/null & yes > /dev/null & yes > /dev/null & yes > /dev/null & yes > /dev/null & yes > /dev/null & yes > /dev/null &
 	sleep 30
 	killall yes
-fi
+fi &> /dev/null
 
 if [ "${Core}" -eq 10 ]
 then
 	yes > /dev/null & yes > /dev/null & yes > /dev/null & yes > /dev/null & yes > /dev/null & yes > /dev/null & yes > /dev/null & yes > /dev/null & yes > /dev/null & yes > /dev/null &
 	sleep 30
 	killall yes
-fi
+fi &> /dev/null
 
 if [ "${Core}" -eq 11 ]
 then
 	yes > /dev/null & yes > /dev/null & yes > /dev/null & yes > /dev/null & yes > /dev/null & yes > /dev/null & yes > /dev/null & yes > /dev/null & yes > /dev/null & yes > /dev/null & yes > /dev/null &
 	sleep 30
 	killall yes
-fi
+fi &> /dev/null
 
 if [ "${Core}" -eq 12 ]
 then
 	yes > /dev/null & yes > /dev/null & yes > /dev/null & yes > /dev/null & yes > /dev/null & yes > /dev/null & yes > /dev/null & yes > /dev/null & yes > /dev/null & yes > /dev/null & yes > /dev/null & yes > /dev/null &
 	sleep 30
 	killall yes
-fi
+fi &> /dev/null
 
 echo "Please confirm the information below"
 
