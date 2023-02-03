@@ -30,5 +30,7 @@ echo ${uptime}
 if [ "${days_up}" -gt "$(($(/bin/date +%D)+14))" ]
 then
     /usr/local/bin/kandji display-alert --title "$Title" --message "$message"
+else
+    echo "Device online less than defined amount"
 fi > dev/null
 exit 0
