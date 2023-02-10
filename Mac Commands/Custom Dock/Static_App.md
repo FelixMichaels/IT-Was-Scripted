@@ -27,56 +27,76 @@ File  | Content Cell   | Content Cell         | File   | Content Cell           
 
 [Example_Dock_Setup.sh](https://github.com/FelixMichaels/SE-JIT/blob/master/Mac%20Commands/Custom%20Dock/Example_Dock_Setup.sh)
 
+```shell
+# Launchpad Application
 $echo "Adding \"Launchpad\"..."
 $sudo -u $loggedInUser $dockutil --add "/Applications/Launchpad.app" --no-restart $UserPlist
 
+# Kandji Self Service Application
 $echo "Adding \"Kandji Self Service\"..."
 $sudo -u $loggedInUser $dockutil --add "/Applications/Kandji Self Service.app" --no-restart $UserPlist
 
+# Safari Application
 $echo "Adding \"Safari\"..."
 $sudo -u $loggedInUser $dockutil --add "/Applications/Safari.app" --no-restart $UserPlist
 
+# Google Chrome Application
 $echo "Adding \"Google Chrome\"..."
 $sudo -u $loggedInUser $dockutil --add "/Applications/Google Chrome.app" --no-restart $UserPlist
 
+# Front Application
 $echo "Adding \"Front\"..."
 $sudo -u $loggedInUser $dockutil --add "/Applications/Front.app" --no-restart $UserPlist
 
+# Slack Application
 $echo "Adding \"Slack\"..."
 $sudo -u $loggedInUser $dockutil --add "/Applications/Slack.app" --no-restart $UserPlist
 
+# Basecamp 3 Application
 $echo "Adding \"Basecamp 3\"..."
 $sudo -u $loggedInUser $dockutil --add "/Applications/Basecamp 3.app" --no-restart $UserPlist
 
+# Dropbox Application
 $echo "Adding \"Dropbox\"..."
 $sudo -u $loggedInUser $dockutil --add "/Applications/Dropbox.app" --no-restart $UserPlist
 
+# 1Password 7 Application
 $echo "Adding \"1Password 7\"..."
 $sudo -u $loggedInUser $dockutil --add "/Applications/1Password 7.app" --no-restart $UserPlist
 
+# Microsoft Excel Application
 $echo "Adding \"Microsoft Excel\"..."
 $sudo -u $loggedInUser $dockutil --add "/Applications/Microsoft Excel.app" --no-restart $UserPlist
 
+# Microsoft Word Application
 $echo "Adding \"Microsoft Word\"..."
 $sudo -u $loggedInUser $dockutil --add "/Applications/Microsoft Word.app" --no-restart $UserPlist
 
+# Calendar Application
 $echo "Adding \"Calendar\"..."
 $sudo -u $loggedInUser $dockutil --add "/Applications/Calendar.app" --no-restart $UserPlist
 
+# Notes Application
 $echo "Adding \"Notes\"..."
 $sudo -u $loggedInUser $dockutil --add "/Applications/Notes.app" --no-restart $UserPlist
 
+# App Store Application
 $echo "Adding \"App Store\"..."
 $sudo -u $loggedInUser $dockutil --add "/Applications/App Store.app" --no-restart $UserPlist
 
+# Preview Application
 $echo "Adding \"Preview\"..."
 $sudo -u $loggedInUser $dockutil --add "/Applications/Preview.app" --no-restart $UserPlist
 
+# System Setings Application
 $echo "Adding \"System Settings\"..."
 $sudo -u $loggedInUser $dockutil --add "/System/Applications/System Settings.app" --no-restart $UserPlist
 
+# Documents Folder
 $echo "Adding \"Documents\"..."
 $sudo -u $loggedInUser $dockutil --add "~/Documents" --section others --view auto --display folder --no-restart $UserPlist
 
+# Downloads Folder
 $echo "Adding \"Downloads\"..."
 $sudo -u $loggedInUser $dockutil --add "~/Downloads" --section others --view auto --display folder --no-restart $UserPlist
+```
