@@ -1,9 +1,9 @@
 # Static App Repository #
 
 
-First Header  | Second Header  | Third Header  | Fourth Header  | Fifth Header  | sixth Header  |
+Type          | Label          | Display Name  | Type           | Path          | Path Type     |
 ------------- | -------------  | ------------  | -------------  | ------------  | ------------- |
-Content Cell  | Content Cell   | Content Cell  | Content Cell   | Content Cell  | Content Cell  |
+File  | Content Cell   | Content Cell  | Content Cell   | Content Cell  | Content Cell  |
 Content Cell  | Content Cell   | Content Cell  | Content Cell   | Content Cell  | Content Cell  |
 Content Cell  | Content Cell   | Content Cell  | Content Cell   | Content Cell  | Content Cell  |
 Content Cell  | Content Cell   | Content Cell  | Content Cell   | Content Cell  | Content Cell  |
