@@ -18,7 +18,7 @@ How to Guide
 * Place script on the target machine
 * Place script on the target machine
 	* Change the script permissions to be executable (chmod +x "Scriptname.sh")
-	* Run the script to execute custom dock
+	* Run the script w/sudo to execute custom dock
 
 Note: If docked applications are not on the machine it will show up as a question mark.
 
@@ -80,3 +80,4 @@ How to Guide
 # Sign your config file with the command below
 security cms -Si /path/to/some.mobileconfig -o /path/to/signed_version_of.mobileconfig -N "Signing Certificate Name"
 ```
+* You can deploy to another computer manually now and install the profile with admin credentials
