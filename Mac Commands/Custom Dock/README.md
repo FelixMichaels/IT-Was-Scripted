@@ -10,7 +10,7 @@ How to Guide
 
 #### Manual ####
 
-* Download Docutil from Github https://github.com/kcrawford/dockutil/releases
+* Download Docutil from Github [here](https://github.com/kcrawford/dockutil/releases)
 * Install Docutil on your device/s of choice
 * Create a script that will add and remove applications that you do not need or want
 	* Script can be found above
@@ -32,7 +32,7 @@ Note: If application is downloaded after script is ran, it can cause a duplicate
 * In Kandji
 	* Navigate to Library > Add New > Custom Application
 		* Name the Application: Docutil
-		* Change the Image (Optional): https://tinyurl.com/542pz527
+		* Change the Image (Optional): [image](https://tinyurl.com/542pz527)
 		* Assign Blueprint (Optional): Assign to your preferred blueprint
 		* Rules (Optional): I like to utilize groups or Asset tags
 			* Example #1: Google group NewHire MDM
@@ -42,7 +42,7 @@ Note: If application is downloaded after script is ran, it can cause a duplicate
 			* Note: Self service allows the most granular timing on when to set the doc
 			* Note: If self service, you will need to adjust the self service settings to place the custom application in the category of your choice
 		* Install details: Installer package (PKG, MPKG)
-			* Upload PKG you downloaded above or from https://github.com/kcrawford/dockutil/releases
+			* Upload PKG you downloaded above or from [here](https://github.com/kcrawford/dockutil/releases)
 		* Expand Add Postinstall Script
 			* Download example script above
 				a. Adjust the script to have the applications that you want to be docked
@@ -59,7 +59,7 @@ How to Guide
 #### Automated w/Kandji (Will be different w/other MDM) ####
 
 * Shout out to the Kandji team for the awesome blog post on using iMazing for the automated deployment
-    * https://support.kandji.io/support/solutions/articles/72000560464-modify-the-macos-dock
+    * [Support Guide](https://support.kandji.io/support/solutions/articles/72000560464-modify-the-macos-dock)
 * These instructions will help you create a mobile.config file that can be used in your tenant
 * Head over to YOURORG.kandji.io to get started
 
@@ -69,11 +69,11 @@ How to Guide
 #### Manual ####
 
 * Again shout out to the Kandji team for the blog post
-    * https://support.kandji.io/support/solutions/articles/72000560464-modify-the-macos-dock
+    * [Support Guide](https://support.kandji.io/support/solutions/articles/72000560464-modify-the-macos-dock)
 * Once you are on the blog post above complete steps 1-10 and save your config file
     * Example: custom_dock.mobileconfig
 * You should sign the config file but it will still work w/o a trusted signature
 * To sign the config file you must have a valid signing signature. Check with the commamnd below
     * `code(/usr/bin/security find-identity -p codesigning -v)`
 * Sign your config file with the command below
-    * security cms -Si /path/to/some.mobileconfig -o /path/to/signed_version_of.mobileconfig -N "Signing Certificate Name"
+    * `security cms -Si /path/to/some.mobileconfig -o /path/to/signed_version_of.mobileconfig -N "Signing Certificate Name"()`
