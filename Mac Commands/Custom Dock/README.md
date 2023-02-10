@@ -13,7 +13,7 @@ Manually
 1. Download Docutil from Github https://github.com/kcrawford/dockutil/releases
 2. Install Docutil on your device/s of choice
 3. Create a script that will add and remove applications that you do not need or want
-	a. My script can be found above
+	3. My script can be found above
 4. Adjust the script to have the applications that you want to be docked
 5. Place script on the target machine
 	a. Change the script permissions to be executable (chmod +x “Scriptname.sh)
