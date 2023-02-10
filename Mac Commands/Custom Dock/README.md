@@ -63,7 +63,7 @@ How to Guide
 * These instructions will help you create a mobile.config file that can be used in your tenant
 * Head over to YOURORG.kandji.io to get started
 
-## Check out my current repo with a ton of preconfigured Static Apps ##
+## Check out my repo with preconfigured Static Apps ##
 * 
 
 #### Manual ####
@@ -73,7 +73,10 @@ How to Guide
 * Once you are on the blog post above complete steps 1-10 and save your config file
     * Example: custom_dock.mobileconfig
 * You should sign the config file but it will still work w/o a trusted signature
-* To sign the config file you must have a valid signing signature. Check with the commamnd below
-    * `code(/usr/bin/security find-identity -p codesigning -v)`
-* Sign your config file with the command below
-    * `security cms -Si /path/to/some.mobileconfig -o /path/to/signed_version_of.mobileconfig -N "Signing Certificate Name"()`
+```shell
+# To sign the config file you must have a valid signing signature. Check with the commamnd below
+/usr/bin/security find-identity -p codesigning -v
+
+# Sign your config file with the command below
+security cms -Si /path/to/some.mobileconfig -o /path/to/signed_version_of.mobileconfig -N "Signing Certificate Name"
+```
