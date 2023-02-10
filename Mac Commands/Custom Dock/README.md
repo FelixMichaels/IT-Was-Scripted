@@ -28,7 +28,7 @@ Note: If application is downloaded after script is ran, it can cause a duplicate
 
 #### Automated w/Kandji (Will be different w/other MDM) ####
 
-* Download Docutil from Github https://github.com/kcrawford/dockutil/releases
+* Download Docutil from Github [here](https://github.com/kcrawford/dockutil/releases)
 * In Kandji
 	* Navigate to Library > Add New > Custom Application
 		* Name the Application: Docutil
