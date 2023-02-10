@@ -1,4 +1,4 @@
-Setting up a Custom Dock
+### Setting up a Custom Dock ###
 
 
 Method 1: Docutil
@@ -17,7 +17,7 @@ Manually
 * Adjust the script to have the applications that you want to be docked
 * Place script on the target machine
 * Place script on the target machine
-	* Change the script permissions to be executable (chmod +x “Scriptname.sh)
+	* Change the script permissions to be executable (chmod +x "Scriptname.sh")
 	* Run the script to execute custom dock
 
 Note: If docked applications are not on the machine it will show up as a question mark.
@@ -30,7 +30,7 @@ Automated w/Kandji (Will be different w/other MDM)
 * In Kandji
 	* Navigate to Library > Add New > Custom Application
 		* Name the Application: Docutil
-		* Change the Image (Optional): https://github.com/FelixMichaels/SE-JIT/blob/master/Mac%20Commands/Custom%20Dock/dock.png
+		* Change the Image (Optional): https://tinyurl.com/542pz527
 		* Assign Blueprint (Optional): Assign to your preferred blueprint
 		* Rules (Optional): I like to utilize groups or Asset tags
 			* Example #1: Google group NewHire MDM
