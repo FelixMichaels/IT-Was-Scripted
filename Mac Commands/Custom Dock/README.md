@@ -1,4 +1,4 @@
-## Setting up a Custom Dock ##
+# Setting up a Custom Dock #
 
 
 Method 1: Docutil
