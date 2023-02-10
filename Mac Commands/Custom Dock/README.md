@@ -30,7 +30,7 @@ Automated w/Kandji (Will be different w/other MDM)
 * In Kandji
 	* Navigate to Library > Add New > Custom Application
 		* Name the Application: Docutil
-		* Change the Image (Optional): Image
+		* Change the Image (Optional): https://github.com/FelixMichaels/SE-JIT/blob/master/Mac%20Commands/Custom%20Dock/dock.png
 		* Assign Blueprint (Optional): Assign to your preferred blueprint
 		* Rules (Optional): I like to utilize groups or Asset tags
 			* Example #1: Google group NewHire MDM
