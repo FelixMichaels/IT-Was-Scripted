@@ -1,7 +1,7 @@
 # Setting up a Custom Dock #
 
 
-Method 1: Docutil
+#### Method 1: Docutil ####
 
 Pros: Allows the end user to add items to the Dock after removing and adding default applications
 Cons: Does not lock the applications to the dock, end users can remove the apps as needed, provides the most flexibility. Also has the possibility to duplicate applications (icons only) if they are not installed prior to installation
@@ -21,7 +21,9 @@ Manually
 	* Run the script to execute custom dock
 
 Note: If docked applications are not on the machine it will show up as a question mark.
+
 Note: If custom script for applications is the wrong path it will show up as a question mark.
+
 Note: If application is downloaded after script is ran, it can cause a duplicate of the application in the dock.
 
 Automated w/Kandji (Will be different w/other MDM)
@@ -47,7 +49,7 @@ Automated w/Kandji (Will be different w/other MDM)
 			* Copy and paste the script into the script area
 			* Save and continue
 
-Method 2: Mobileconfig File
+#### Method 2: Mobileconfig File ####
 
 Pros: Easy to use and adjustable via Imazing profile Editor
 Cons: Allows the user to add applications to the dock but after restart reverts back to the dock set by the default profile.
