@@ -3,13 +3,12 @@
 
 ### Method 1: Docutil ###
 
-Pros: Allows the end user to add items to the Dock after removing and adding default applications
-
-Cons: Does not lock the applications to the dock, end users can remove the apps as needed, provides the most flexibility. Also has the possibility to duplicate applications (icons only) if they are not installed prior to installation
+* Pros: Allows the end user to add items to the Dock after removing and adding default applications
+* Cons: Does not lock the applications to the dock, end users can remove the apps as needed, provides the most flexibility. Also has the possibility to duplicate applications (icons only) if they are not installed prior to installation
 
 How to Guide
 
-#### Manually ####
+#### Manual ####
 
 * Download Docutil from Github https://github.com/kcrawford/dockutil/releases
 * Install Docutil on your device/s of choice
@@ -52,8 +51,29 @@ Note: If application is downloaded after script is ran, it can cause a duplicate
 
 ### Method 2: Mobileconfig File ###
 
-Pros: Easy to use and adjustable via Imazing profile Editor
-
-Cons: Allows the user to add applications to the dock but after restart reverts back to the dock set by the default profile.
+* Pros: Easy to use and adjustable via Imazing profile Editor
+* Cons: Allows the user to add applications to the dock but after restart reverts back to the dock set by the default profile.
 
 How to Guide
+
+#### Automated w/Kandji (Will be different w/other MDM) ####
+
+* Shout out to the Kandji team for the awesome blog post on using iMazing for the automated deployment
+    * https://support.kandji.io/support/solutions/articles/72000560464-modify-the-macos-dock
+* These instructions will help you create a mobile.config file that can be used in your tenant
+* Head over to YOURORG.kandji.io to get started
+
+## Check out my current repo with a ton of preconfigured Static Apps ##
+* 
+
+#### Manual ####
+
+* Again shout out to the Kandji team for the blog post
+    * https://support.kandji.io/support/solutions/articles/72000560464-modify-the-macos-dock
+* Once you are on the blog post above complete steps 1-10 and save your config file
+    * Example: custom_dock.mobileconfig
+* You should sign the config file but it will still work w/o a trusted signature
+* To sign the config file you must have a valid signing signature. Check with the commamnd below
+    * `code(/usr/bin/security find-identity -p codesigning -v)`
+* Sign your config file with the command below
+    * security cms -Si /path/to/some.mobileconfig -o /path/to/signed_version_of.mobileconfig -N "Signing Certificate Name"
