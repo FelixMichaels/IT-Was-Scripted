@@ -4,6 +4,7 @@
 #########################################################################################################
 # Created by https://github.com/jamf/MakeMeAnAdmin
 # Updated by Michael LeMay Oct 19 2023
+# Updated by Michael LeMay Nov 20 2023
 #########################################################################################################
 # Purpose
 #########################################################################################################
@@ -14,9 +15,8 @@
 # Script version
 VERSION="1.0"
 ############################################### Variables ###############################################
-# Update WEBHOOK_URL at line 20 & 139
-
-minutes="2"
+# Update WEBHOOK_URL at line 20 & 141
+minutes="30"
 WEBHOOK_URL=""
 
 ############################################# NON - Editable Variables ##################################
@@ -25,7 +25,12 @@ set_time=$((minutes * 60))
 Device_Name=$(scutil --get LocalHostName)
 Serial_Number=$(system_profiler SPHardwareDataType | awk '/Serial Number/{print $4}')
 Date=$(date -u '+%b %d, %I:%M:%S %p')
+currentUser=$(stat -f%Su /dev/console)
 
+############################################# PRE-CHECK ################################################
+if /usr/sbin/dseditgroup -o checkmember -m $currentUser admin; then
+    /usr/local/bin/kandji display-alert --title "Admin Access" --message "You already have administrative rights." --no-wait
+else
 ############################################# SLACK WEBHOOK #############################################
 
 # Function to send Slack message
@@ -76,10 +81,7 @@ send_slack_message() {
 }'
 }
 
-###################################### find the logged in user and let them know ########################
-
-currentUser=$(stat -f%Su /dev/console)
-echo $currentUser
+###################################### SEND MESSAGE TO USER & SLACK ########################
 
 send_grant_message() {
     /usr/local/bin/kandji display-alert --title "Admin Access" --message "You now have administrative rights for $minutes minutes. Please use your elevated permissions responsibly!" --no-wait
@@ -125,9 +127,8 @@ echo "$currentUser" >> /private/var/userToRemove/user
 #########################################################################################################
 # give the user admin privileges #
 
-
 /usr/sbin/dseditgroup -o edit -a $currentUser -t user admin
-
+fi
 #########################################################################################################
 # write a script for the launch daemon 
 # to run to demote the user back and   
@@ -194,14 +195,14 @@ currentUser=$(stat -f%Su /dev/console)
 ############################################### Remove Admin #############################################
 
 if [[ -f /private/var/userToRemove/user ]]; then
-	userToRemove=$(cat /private/var/userToRemove/user)
-	send_slack_message "Admin Access Removed" "$currentUser's admin access has been removed."
+    userToRemove=$(cat /private/var/userToRemove/user)
+    send_slack_message "Admin Access Removed" "$currentUser's admin access has been removed."
     /usr/local/bin/kandji display-alert --title "Admin Access" --message "Your Admin access has run out. You have now been reinstated back to your original permissions" --no-wait
-	/usr/sbin/dseditgroup -o edit -d $userToRemove -t user admin
-	rm -f /private/var/userToRemove/user
-	launchctl unload /Library/LaunchDaemons/removeAdmin.plist
-	rm /Library/LaunchDaemons/removeAdmin.plist
+    /usr/sbin/dseditgroup -o edit -d $userToRemove -t user admin
+    rm -f /private/var/userToRemove/user
+    launchctl unload /Library/LaunchDaemons/removeAdmin.plist
+    rm /Library/LaunchDaemons/removeAdmin.plist
     
-fi	
-	exit 0
+fi  
+    exit 0
 EOF
