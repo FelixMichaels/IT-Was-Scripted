@@ -4,7 +4,7 @@
 #########################################################################################################
 # Created by https://github.com/jamf/MakeMeAnAdmin
 # Updated by Michael LeMay Oct 19 2023
-# Updated by Michael LeMay Nov 20 2023
+# Updated by Michael LeMay Nov 24 2023
 #########################################################################################################
 # Purpose
 #########################################################################################################
@@ -13,9 +13,9 @@
 # Additionally, sending updates to a slack channel for admin review and visibility
 #########################################################################################################
 # Script version
-VERSION="1.0"
+VERSION="1.5"
 ############################################### Variables ###############################################
-# Update WEBHOOK_URL at line 20 & 141
+
 minutes="30"
 WEBHOOK_URL=""
 
@@ -73,8 +73,8 @@ send_slack_message() {
             ],
             "accessory": {
                 "type": "image",
-                "image_url": "https://media0.giphy.com/media/bSEkPdQfsSHCMYn7fD/giphy.gif",
-                "alt_text": "ah-hyuck!"
+                "image_url": "https://gifdb.com/images/high/mushroom-movie-punching-fight-5lsrgbxxlf41lbl3.gif",
+                "alt_text": "Ahh-Hyuck"
             }
         }
     ]
@@ -184,7 +184,7 @@ send_slack_message() {
             "accessory": {
                 "type": "image",
                 "image_url": "https://gifdb.com/images/high/mushroom-movie-punching-fight-5lsrgbxxlf41lbl3.gif",
-                "alt_text": "ah-hyuck!"
+                "alt_text": "Ahh-Hyuck"
             }
         }
     ]
