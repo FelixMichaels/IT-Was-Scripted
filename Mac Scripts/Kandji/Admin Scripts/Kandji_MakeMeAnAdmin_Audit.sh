@@ -12,7 +12,7 @@
 # Script version
 VERSION="1.0"
 ############################################### Editable Variables ######################################
-exclude_admin=("ksadmin" "michael")
+exclude_admin=("admin1 "admin2")
 
 ############################################### Find Logged in User #####################################
 CURRENT_USER=$(/usr/sbin/scutil <<< "show State:/Users/ConsoleUser" \ | /usr/bin/awk '/Name :/ && ! /loginwindow/ { print $3 }')
